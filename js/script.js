@@ -44,7 +44,6 @@ class Libro {
 let catalogo = [];
 const nuevoLibro = ()=> {
     
-    
     let titulo = document.getElementById("tituloLibro");
     let autor = document.getElementById("autorLibro");
     let pCompra = document.getElementById("precioCompra");
@@ -59,5 +58,22 @@ const nuevoLibro = ()=> {
 }
 
 const mostrarCatalogo = ()=> {
-    console.log(catalogo);
+    for (itemLibro in catalogo){
+        let datosLibro = catalogo[itemLibro];
+        let titulo = datosLibro["titulo"];
+        let autor = datosLibro["autor"];
+        let pCompra = datosLibro["pCompra"];
+        let pVenta = datosLibro["pVenta"];
+        let stock = datosLibro["stock"];
+        let htmlTabla = `
+        <tr>
+        <td>${titulo}</td>
+        <td>${autor}</td>
+        <td>${pCompra}</td>
+        <td>${pVenta}</td>
+        <td>${stock}</td>
+        </tr>`
+        document.querySelector(".tbody").innerHTML += htmlTabla;
+
+    }
 }

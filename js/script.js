@@ -58,6 +58,13 @@ const nuevoLibro = ()=> {
 }
 
 const mostrarCatalogo = ()=> {
+
+    let tr = document.querySelectorAll(".tr");
+
+    for(let i = 0, j = tr.length; i < j; i++) {
+        tr[i].remove()
+    }
+
     for (itemLibro in catalogo){
         let datosLibro = catalogo[itemLibro];
         let titulo = datosLibro["titulo"];
@@ -66,7 +73,7 @@ const mostrarCatalogo = ()=> {
         let pVenta = datosLibro["pVenta"];
         let stock = datosLibro["stock"];
         let htmlTabla = `
-        <tr>
+        <tr class="tr">
         <td>${titulo}</td>
         <td>${autor}</td>
         <td>${pCompra}</td>

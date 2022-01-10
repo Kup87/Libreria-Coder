@@ -6,59 +6,62 @@ class Libro {
         this.pVenta = parseInt(pVenta,10);
         this.estado = estado;
         this.stock = stock;
-    }
-
-    checkForm() {
-        let error = false;
-        let checkTitulo = ()=> {
-            if (this.titulo === ""){error = true;}
-            console.log(error)
-        }
-        let checkAutor = ()=> {
-            if (this.autor === ""){error = true;}
-            console.log(error)
-        }
-        let checkPcompra = ()=> {
-            if (isNaN(this.pCompra) || this.pCompra === "" || this.pCompra <= 0){error = true;}
-            console.log(error)}
-        let checkEstado = ()=> {
-            if (this.estado === ""){error = true;}
-            console.log(error)
-        } 
-    
-        checkTitulo(); checkAutor(); checkPcompra(); checkEstado();
-    
-        if(error === true){
-           console.log("Algún dato fue ingresado incorrectamente");
-        }
-    }
-
-    setStock() {
-        let stockIni = 0;
-        let unidadesAdd = parseInt(document.getElementById("cantidadUnidades").value,10);
-        this.stock = stockIni + unidadesAdd;
-        console.log(this.stock);
-    }
+    } 
 }
+
+let titulo = document.getElementById("tituloLibro");
+let autor = document.getElementById("autorLibro");
+let pVenta = document.getElementById("precioVenta");
+let pCompra = document.getElementById("precioCompra");
+let estado = document.getElementById("estadoLibro");
+let cantidadUnidades = document.getElementById("cantidadUnidades");
 
 let catalogo = [];
-const nuevoLibro = ()=> {
-    
-    let titulo = document.getElementById("tituloLibro");
-    let autor = document.getElementById("autorLibro");
-    let pCompra = document.getElementById("precioCompra");
-    let pVenta = document.getElementById("precioVenta");
-    let estado = document.getElementById("estadoLibro");
-        
+
+let form = document.getElementById("form");
+
+form.addEventListener("submit", (e)=>{
+
+    const checkForm = () => {
+        let error = false;
+        if (titulo.value === ""){
+            error = true;} 
+        if (autor.value === ""){
+            error = true;}    
+        if (isNaN(pCompra.value) || pCompra.value === "" || pCompra.value <= 0){
+             error = true;}        
+        if (estado.value === ""){
+            error = true;}         
+        if(error === false) { //Si todo está bien, agrego el nuevo libro    
+            nuevoLibro();   
+        }        
+        if(error == true){ //Si algo está mal, no dejo que se envíe 
+            console.log("Algún dato fue ingresado incorrectamente");
+            e.preventDefault();
+        }
+    }
+    checkForm();
+})
+
+const nuevoLibro = ()=> { 
     const nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value);
-    nuevoLibro.checkForm();
-    nuevoLibro.setStock();
     catalogo.push(nuevoLibro);
+    let Libreria = JSON.parse(localStorage.getItem("Libreria"));
+    if (Libreria == null){
+        localStorage.setItem("Libreria", JSON.stringify(catalogo));
+    } else {
+        Libreria.push(nuevoLibro);
+        localStorage.setItem("Libreria", JSON.stringify(Libreria));
+    }
     
 }
 
-const mostrarCatalogo = ()=> {
 
+
+
+
+const mostrarCatalogo = ()=> {
+    let catalogo = JSON.parse(localStorage.getItem("Libreria"));
     let tr = document.querySelectorAll(".tr");
 
     for(let i = 0, j = tr.length; i < j; i++) {
@@ -84,3 +87,17 @@ const mostrarCatalogo = ()=> {
 
     }
 }
+
+
+
+   
+
+
+     // setStock() {
+    //     let stockIni = 0;
+    //     let unidadesAdd = parseInt(document.getElementById("cantidadUnidades").value,10);
+    //     this.stock = stockIni + unidadesAdd;
+    //     console.log(this.stock);
+    // }
+
+

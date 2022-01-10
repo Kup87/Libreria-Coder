@@ -1,0 +1,6 @@
+.requiered {
+    border: 1px solid red;
+}
+.requiered::placeholder {
+    color: red;
+}

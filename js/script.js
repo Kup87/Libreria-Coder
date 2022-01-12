@@ -21,17 +21,30 @@ let catalogo = [];
 let form = document.getElementById("form");
 
 form.addEventListener("submit", (e)=>{
-
+    
     const checkForm = () => {
         let error = false;
+        
         if (titulo.value === ""){
-            error = true;} 
+            destacarError(titulo);
+            error = true;} else {
+            limpiarError(titulo);
+        }
         if (autor.value === ""){
-            error = true;}    
+            destacarError(autor)
+            error = true;}  else {
+            limpiarError(autor);
+        }  
         if (isNaN(pCompra.value) || pCompra.value === "" || pCompra.value <= 0){
-             error = true;}        
+            destacarError(pCompra);
+            error = true;} else {
+            limpiarError(pCompra);
+        }       
         if (estado.value === ""){
-            error = true;}         
+            destacarError(estado);
+            error = true;} else {
+            limpiarError(estado);
+        }        
         if(error === false) { //Si todo está bien, agrego el nuevo libro    
             nuevoLibro();   
         }        
@@ -43,23 +56,30 @@ form.addEventListener("submit", (e)=>{
     checkForm();
 })
 
+//Agregar un new Libro al array catálogo
 const nuevoLibro = ()=> { 
     const nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value);
     catalogo.push(nuevoLibro);
-    let Libreria = JSON.parse(localStorage.getItem("Libreria"));
+    let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
     if (Libreria == null){
         localStorage.setItem("Libreria", JSON.stringify(catalogo));
     } else {
         Libreria.push(nuevoLibro);
         localStorage.setItem("Libreria", JSON.stringify(Libreria));
     }
-    
 }
 
+//Agregar o quitar la clase CSS "requiered"
+const destacarError = (o) => {
+    o.classList.add("requiered");
+    o.placeholder = "Es necesario completar este campo";
+}
 
+const limpiarError = (o) => {
+    o.classList.remove("requiered");
+}
 
-
-
+//Mostrar el catálogo por tabla
 const mostrarCatalogo = ()=> {
     let catalogo = JSON.parse(localStorage.getItem("Libreria"));
     let tr = document.querySelectorAll(".tr");
@@ -84,9 +104,9 @@ const mostrarCatalogo = ()=> {
         <td>${stock}</td>
         </tr>`
         document.querySelector(".tbody").innerHTML += htmlTabla;
-
     }
 }
+
 
 
 

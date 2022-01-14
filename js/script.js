@@ -21,17 +21,30 @@ let catalogo = [];
 let form = document.getElementById("form");
 
 form.addEventListener("submit", (e)=>{
-
+    
     const checkForm = () => {
         let error = false;
+        
         if (titulo.value === ""){
-            error = true;} 
+            destacarError(titulo);
+            error = true;} else {
+            limpiarError(titulo);
+        }
         if (autor.value === ""){
-            error = true;}    
+            destacarError(autor)
+            error = true;}  else {
+            limpiarError(autor);
+        }  
         if (isNaN(pCompra.value) || pCompra.value === "" || pCompra.value <= 0){
-             error = true;}        
+            destacarError(pCompra);
+            error = true;} else {
+            limpiarError(pCompra);
+        }       
         if (estado.value === ""){
-            error = true;}         
+            destacarError(estado);
+            error = true;} else {
+            limpiarError(estado);
+        }        
         if(error === false) { //Si todo está bien, agrego el nuevo libro    
             nuevoLibro();   
         }        
@@ -43,47 +56,57 @@ form.addEventListener("submit", (e)=>{
     checkForm();
 })
 
+//Agregar un new Libro al array catálogo
 const nuevoLibro = ()=> { 
     const nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value);
     catalogo.push(nuevoLibro);
-    let Libreria = JSON.parse(localStorage.getItem("Libreria"));
+    let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
     if (Libreria == null){
         localStorage.setItem("Libreria", JSON.stringify(catalogo));
     } else {
         Libreria.push(nuevoLibro);
         localStorage.setItem("Libreria", JSON.stringify(Libreria));
     }
+}
+
+//Agregar o quitar la clase CSS "requiered"
+const destacarError = (o) => {
+    o.classList.add("requiered");
+    o.placeholder = "Es necesario completar este campo";
+}
+
+const limpiarError = (o) => {
+    o.classList.remove("requiered");
+}
+
+//Mostrar el catálogo por tabla
+document.getElementById("showCatalogo").addEventListener("click", ()=> {
     
-}
-
-const mostrarCatalogo = ()=> {
-    let catalogo = JSON.parse(localStorage.getItem("Libreria"));
-    let tr = document.querySelectorAll(".tr");
-
-    for(let i = 0, j = tr.length; i < j; i++) {
-        tr[i].remove()
-    }
-
-    for (itemLibro in catalogo){
-        let datosLibro = catalogo[itemLibro];
-        let titulo = datosLibro["titulo"];
-        let autor = datosLibro["autor"];
-        let pCompra = datosLibro["pCompra"];
-        let pVenta = datosLibro["pVenta"];
-        let stock = datosLibro["stock"];
-        let htmlTabla = `
-        <tr class="tr">
-        <td>${titulo}</td>
-        <td>${autor}</td>
-        <td>${pCompra}</td>
-        <td>${pVenta}</td>
-        <td>${stock}</td>
-        </tr>`
-        document.querySelector(".tbody").innerHTML += htmlTabla;
-
-    }
-}
-
+        let catalogo = JSON.parse(localStorage.getItem("Libreria"));
+        let tr = document.querySelectorAll(".tr");
+    
+        for(let i = 0, j = tr.length; i < j; i++) {
+            tr[i].remove()
+        }
+    
+        for (itemLibro in catalogo){
+            let datosLibro = catalogo[itemLibro];
+            let titulo = datosLibro["titulo"];
+            let autor = datosLibro["autor"];
+            let pCompra = datosLibro["pCompra"];
+            let pVenta = datosLibro["pVenta"];
+            let stock = datosLibro["stock"];
+            let htmlTabla = `
+            <tr class="tr">
+            <td>${titulo}</td>
+            <td>${autor}</td>
+            <td>${pCompra}</td>
+            <td>${pVenta}</td>
+            <td>${stock}</td>
+            </tr>`
+            document.querySelector(".tbody").innerHTML += htmlTabla;
+        }
+})
 
 
    
@@ -97,3 +120,29 @@ const mostrarCatalogo = ()=> {
     // }
 
 
+// const mostrarCatalogo = ()=> {
+//     let catalogo = JSON.parse(localStorage.getItem("Libreria"));
+//     let tr = document.querySelectorAll(".tr");
+
+//     for(let i = 0, j = tr.length; i < j; i++) {
+//         tr[i].remove()
+//     }
+
+//     for (itemLibro in catalogo){
+//         let datosLibro = catalogo[itemLibro];
+//         let titulo = datosLibro["titulo"];
+//         let autor = datosLibro["autor"];
+//         let pCompra = datosLibro["pCompra"];
+//         let pVenta = datosLibro["pVenta"];
+//         let stock = datosLibro["stock"];
+//         let htmlTabla = `
+//         <tr class="tr">
+//         <td>${titulo}</td>
+//         <td>${autor}</td>
+//         <td>${pCompra}</td>
+//         <td>${pVenta}</td>
+//         <td>${stock}</td>
+//         </tr>`
+//         document.querySelector(".tbody").innerHTML += htmlTabla;
+//     }
+// }

@@ -80,34 +80,33 @@ const limpiarError = (o) => {
 }
 
 //Mostrar el catálogo por tabla
-const mostrarCatalogo = ()=> {
-    let catalogo = JSON.parse(localStorage.getItem("Libreria"));
-    let tr = document.querySelectorAll(".tr");
-
-    for(let i = 0, j = tr.length; i < j; i++) {
-        tr[i].remove()
-    }
-
-    for (itemLibro in catalogo){
-        let datosLibro = catalogo[itemLibro];
-        let titulo = datosLibro["titulo"];
-        let autor = datosLibro["autor"];
-        let pCompra = datosLibro["pCompra"];
-        let pVenta = datosLibro["pVenta"];
-        let stock = datosLibro["stock"];
-        let htmlTabla = `
-        <tr class="tr">
-        <td>${titulo}</td>
-        <td>${autor}</td>
-        <td>${pCompra}</td>
-        <td>${pVenta}</td>
-        <td>${stock}</td>
-        </tr>`
-        document.querySelector(".tbody").innerHTML += htmlTabla;
-    }
-}
-
-
+document.getElementById("showCatalogo").addEventListener("click", ()=> {
+    
+        let catalogo = JSON.parse(localStorage.getItem("Libreria"));
+        let tr = document.querySelectorAll(".tr");
+    
+        for(let i = 0, j = tr.length; i < j; i++) {
+            tr[i].remove()
+        }
+    
+        for (itemLibro in catalogo){
+            let datosLibro = catalogo[itemLibro];
+            let titulo = datosLibro["titulo"];
+            let autor = datosLibro["autor"];
+            let pCompra = datosLibro["pCompra"];
+            let pVenta = datosLibro["pVenta"];
+            let stock = datosLibro["stock"];
+            let htmlTabla = `
+            <tr class="tr">
+            <td>${titulo}</td>
+            <td>${autor}</td>
+            <td>${pCompra}</td>
+            <td>${pVenta}</td>
+            <td>${stock}</td>
+            </tr>`
+            document.querySelector(".tbody").innerHTML += htmlTabla;
+        }
+})
 
 
    
@@ -121,3 +120,29 @@ const mostrarCatalogo = ()=> {
     // }
 
 
+// const mostrarCatalogo = ()=> {
+//     let catalogo = JSON.parse(localStorage.getItem("Libreria"));
+//     let tr = document.querySelectorAll(".tr");
+
+//     for(let i = 0, j = tr.length; i < j; i++) {
+//         tr[i].remove()
+//     }
+
+//     for (itemLibro in catalogo){
+//         let datosLibro = catalogo[itemLibro];
+//         let titulo = datosLibro["titulo"];
+//         let autor = datosLibro["autor"];
+//         let pCompra = datosLibro["pCompra"];
+//         let pVenta = datosLibro["pVenta"];
+//         let stock = datosLibro["stock"];
+//         let htmlTabla = `
+//         <tr class="tr">
+//         <td>${titulo}</td>
+//         <td>${autor}</td>
+//         <td>${pCompra}</td>
+//         <td>${pVenta}</td>
+//         <td>${stock}</td>
+//         </tr>`
+//         document.querySelector(".tbody").innerHTML += htmlTabla;
+//     }
+// }

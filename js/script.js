@@ -56,10 +56,6 @@ const nuevoLibro = ()=> {
     
 }
 
-
-
-
-
 const mostrarCatalogo = ()=> {
     let catalogo = JSON.parse(localStorage.getItem("Libreria"));
     let tr = document.querySelectorAll(".tr");

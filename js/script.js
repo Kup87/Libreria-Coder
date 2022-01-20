@@ -114,7 +114,15 @@ document.getElementById("showCatalogo").addEventListener("click", ()=> {
     }
 })
 
-
+//Encontrar una manera de que compare todo el item (tanto nombre como autor, $ y estado) y si son iguales sume el stock
+let existsInStock = ()=> {
+    let inStock = JSON.parse(localStorage.getItem("Libreria"));
+    for (item of inStock) {
+        if (item["titulo"] === "h"){
+           console.log(item)
+        }
+    }
+}
 
    
 
@@ -127,29 +135,4 @@ document.getElementById("showCatalogo").addEventListener("click", ()=> {
     // }
 
 
-// const mostrarCatalogo = ()=> {
-//     let catalogo = JSON.parse(localStorage.getItem("Libreria"));
-//     let tr = document.querySelectorAll(".tr");
 
-//     for(let i = 0, j = tr.length; i < j; i++) {
-//         tr[i].remove()
-//     }
-
-//     for (itemLibro in catalogo){
-//         let datosLibro = catalogo[itemLibro];
-//         let titulo = datosLibro["titulo"];
-//         let autor = datosLibro["autor"];
-//         let pCompra = datosLibro["pCompra"];
-//         let pVenta = datosLibro["pVenta"];
-//         let stock = datosLibro["stock"];
-//         let htmlTabla = `
-//         <tr class="tr">
-//         <td>${titulo}</td>
-//         <td>${autor}</td>
-//         <td>${pCompra}</td>
-//         <td>${pVenta}</td>
-//         <td>${stock}</td>
-//         </tr>`
-//         document.querySelector(".tbody").innerHTML += htmlTabla;
-//     }
-// }

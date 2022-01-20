@@ -21,7 +21,8 @@ let catalogo = [];
 let form = document.getElementById("form");
 
 form.addEventListener("submit", (e)=>{
-    
+    e.preventDefault();
+
     const checkForm = () => {
         let error = false;
         
@@ -47,10 +48,11 @@ form.addEventListener("submit", (e)=>{
         }        
         if(error === false) { //Si todo está bien, agrego el nuevo libro    
             nuevoLibro();   
+            form.reset();
         }        
         if(error == true){ //Si algo está mal, no dejo que se envíe 
-            console.log("Algún dato fue ingresado incorrectamente");
-            e.preventDefault();
+            window.alert("Algún dato fue ingresado incorrectamente");
+            
         }
     }
     checkForm();
@@ -82,31 +84,36 @@ const limpiarError = (o) => {
 //Mostrar el catálogo por tabla
 document.getElementById("showCatalogo").addEventListener("click", ()=> {
     
-        let catalogo = JSON.parse(localStorage.getItem("Libreria"));
-        let tr = document.querySelectorAll(".tr");
+    let catalogo = JSON.parse(localStorage.getItem("Libreria"));
+    let tr = document.querySelectorAll(".tr");
     
-        for(let i = 0, j = tr.length; i < j; i++) {
-            tr[i].remove()
-        }
+    for(let i = 0, j = tr.length; i < j; i++) {
+        tr[i].remove()
+    }
     
-        for (itemLibro in catalogo){
-            let datosLibro = catalogo[itemLibro];
-            let titulo = datosLibro["titulo"];
-            let autor = datosLibro["autor"];
-            let pCompra = datosLibro["pCompra"];
-            let pVenta = datosLibro["pVenta"];
-            let stock = datosLibro["stock"];
-            let htmlTabla = `
-            <tr class="tr">
-            <td>${titulo}</td>
-            <td>${autor}</td>
-            <td>${pCompra}</td>
-            <td>${pVenta}</td>
-            <td>${stock}</td>
-            </tr>`
-            document.querySelector(".tbody").innerHTML += htmlTabla;
-        }
+    for (item of catalogo) {
+
+        let htmlTabla = `
+        
+        <tr class="tr">
+        
+        <td>${item.titulo}</td>
+        
+        <td>${item.autor}</td>
+        
+        <td>${item.pCompra}</td>
+        
+        <td>${item.pVenta}</td>
+        
+        <td>${item.stock}</td>
+        
+        </tr>`;
+        
+        document.querySelector(".tbody").innerHTML += htmlTabla;
+        
+    }
 })
+
 
 
    

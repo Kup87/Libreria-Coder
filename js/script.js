@@ -1,11 +1,12 @@
 class Libro {
-    constructor(titulo,autor,pCompra,pVenta,estado,stock) {
+    constructor(titulo,autor,pCompra,pVenta,estado,stock,imgUrl) {
         this.titulo = titulo;
         this.autor = autor;
         this.pCompra = parseInt(pCompra,10);
         this.pVenta = parseInt(pVenta,10);
         this.estado = estado;
         this.stock = stock;
+        this.imgUrl = imgUrl;
     } 
 }
 
@@ -15,6 +16,7 @@ let pVenta = document.getElementById("precioVenta");
 let pCompra = document.getElementById("precioCompra");
 let estado = document.getElementById("estadoLibro");
 let cantidadUnidades = document.getElementById("cantidadUnidades");
+let imgUrl = document.getElementById("imagenPortada");
 
 let catalogo = [];
 
@@ -60,7 +62,7 @@ form.addEventListener("submit", (e)=>{
 
 //Agregar un new Libro al array catálogo
 const nuevoLibro = ()=> { 
-    const nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value);
+    const nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value, cantidadUnidades.value,imgUrl.value);
     catalogo.push(nuevoLibro);
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
     if (Libreria == null){

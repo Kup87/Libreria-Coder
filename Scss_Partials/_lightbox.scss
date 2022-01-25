@@ -1,0 +1,32 @@
+.lightbox {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    z-index: 1100; //Bootstrap nav => z-index: 1020
+}
+
+.lightOn {
+    display: flex;
+}
+
+.lightbox .btn_close {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    width: 3em;
+    height: 3em;
+    background: image("assets\svg\x-circle.svg");
+    float: right;
+}
+
+.lightbox .tarjeta {
+    width: 80%;
+    height: 80vh;
+    background-color: white;
+}

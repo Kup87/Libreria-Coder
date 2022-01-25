@@ -114,15 +114,23 @@ document.getElementById("showCatalogo").addEventListener("click", ()=> {
     }
 })
 
-//Encontrar una manera de que compare todo el item (tanto nombre como autor, $ y estado) y si son iguales sume el stock
-let existsInStock = ()=> {
-    let inStock = JSON.parse(localStorage.getItem("Libreria"));
-    for (item of inStock) {
-        if (item["titulo"] === "h"){
-           console.log(item)
-        }
-    }
-}
+
+
+
+
+
+
+
+
+// //Encontrar una manera de que compare todo el item (tanto nombre como autor, $ y estado) y si son iguales sume el stock
+// let existsInStock = ()=> {
+//     let inStock = JSON.parse(localStorage.getItem("Libreria"));
+//     for (item of inStock) {
+//         if (item["titulo"] === "h"){
+//            console.log(item)
+//         }
+//     }
+// }
 
    
 

@@ -1,8 +1,8 @@
 //Comparar el libro ingresado con las entradas anteriores
 let existsInStock = ()=> {
     
-    let inStock = JSON.parse(localStorage.getItem("Libreria"));
-    for (item of inStock) {
+    
+    for (item of catalogo) {
         if (item["titulo"] === titulo.value && item["autor"] === autor.value && item["estado"] === estado.value){
             //Hacer que se sumen los stocks y evitar que se cree otra entrada
             

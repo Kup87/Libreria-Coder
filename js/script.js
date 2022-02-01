@@ -47,11 +47,16 @@ form.addEventListener("submit", (e)=>{
             destacarError(estado);
             error = true;} else {
             limpiarError(estado);
-        }        
+        }  
+        if (isNaN(cantidadUnidades.value) || cantidadUnidades.value === "" ){
+            destacarError(cantidadUnidades);
+            error = true;} else {
+            limpiarError(cantidadUnidades);
+        }       
         if(error === false) { //Si todo está bien, agrego el nuevo libro    
             nuevoLibro();   
             form.reset();
-        }        
+        }     
         if(error == true){ //Si algo está mal, no dejo que se envíe 
             
             Swal.fire({
@@ -61,7 +66,9 @@ form.addEventListener("submit", (e)=>{
             })
         }
     }
+    existsInStock();
     checkForm();
+    
 })
 
 //Agregar un new Libro al array catálogo

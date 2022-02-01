@@ -53,8 +53,12 @@ form.addEventListener("submit", (e)=>{
             form.reset();
         }        
         if(error == true){ //Si algo está mal, no dejo que se envíe 
-            window.alert("Algún dato fue ingresado incorrectamente");
             
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algún dato fue ingresado incorrectamente'
+            })
         }
     }
     checkForm();

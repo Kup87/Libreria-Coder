@@ -108,6 +108,10 @@ document.getElementById("showCatalogo").addEventListener("click", ()=> {
         <td>${item.pVenta}</td>
         
         <td>${item.stock}</td>
+
+        <td style="display: none">${item.estado}</td>
+
+        <td style="display: none">${item.imgUrl}</td>
         
         </tr>`;
         

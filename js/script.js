@@ -127,7 +127,7 @@ document.getElementById("showCatalogo").addEventListener("click", ()=> {
         </tr>`;
         
         document.querySelector(".tbody").innerHTML += htmlTabla;
-        
+                
     }
 })
 

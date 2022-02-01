@@ -1,7 +1,6 @@
 //Comparar el libro ingresado con las entradas anteriores
 let existsInStock = ()=> {
     
-    
     for (item of catalogo) {
         if (item["titulo"] === titulo.value && item["autor"] === autor.value && item["estado"] === estado.value){
             //Hacer que se sumen los stocks y evitar que se cree otra entrada

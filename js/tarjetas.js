@@ -6,7 +6,7 @@
 */
 
 $("tbody").on('dblclick', (e)=>{
-    $(".lightbox").addClass("lightOn");
+    $(".lightbox").addClass("lightOn"); //No uso .toggle xq no le da "display: flex" y no se centra
     let string = $(e.target).parent().text();
     let array = string.split("\n");    
 

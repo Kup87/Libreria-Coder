@@ -54,7 +54,7 @@ form.addEventListener("submit", (e)=>{
             limpiarError(cantidadUnidades);
         }       
         if(error === false) { //Si todo está bien, agrego el nuevo libro    
-            nuevoLibro();   
+            fNuevoLibro();   
             form.reset();
         }     
         if(error == true){ //Si algo está mal, no dejo que se envíe 
@@ -66,14 +66,16 @@ form.addEventListener("submit", (e)=>{
             })
         }
     }
-    existsInStock();
+    
     checkForm();
     
 })
 
 //Agregar un new Libro al array catálogo
-const nuevoLibro = ()=> { 
-    const nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value, cantidadUnidades.value,imgUrl.value);
+let nuevoLibro;
+const fNuevoLibro = ()=> { 
+    nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value, cantidadUnidades.value,imgUrl.value);
+    setStock();
     catalogo.push(nuevoLibro);
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
     if (Libreria == null){

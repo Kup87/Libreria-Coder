@@ -5,9 +5,13 @@ let setStock = ()=> {
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));
     if (Libreria !== null){
         for (item of Libreria) {
-            if (item["titulo"] == nuevoLibro.titulo){
+            if (item["titulo"] == nuevoLibro.titulo && item["autor"] == nuevoLibro.autor && item["estado"] == nuevoLibro.estado ){
                 console.log(nuevoLibro.titulo);
                 console.log(item["titulo"]);
+                console.log(nuevoLibro.autor);
+                console.log(item["autor"]);
+                console.log(nuevoLibro.estado);
+                console.log(item["estado"]);
             } else { console.log("no match");}
         }
     }

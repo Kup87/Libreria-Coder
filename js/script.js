@@ -75,7 +75,7 @@ form.addEventListener("submit", (e)=>{
 let nuevoLibro;
 const fNuevoLibro = ()=> { 
     nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value, cantidadUnidades.value,imgUrl.value);
-    setStock();
+    setStock(); //Stock.js
     catalogo.push(nuevoLibro);
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
     if (Libreria == null){

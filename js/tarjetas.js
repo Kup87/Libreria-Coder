@@ -2,7 +2,7 @@
     1- JQuery toggler/add class lighton -> dobleclick tr (DONE)
     2- jquery toggler/remove class lighton -> click btn & click outside (DONE)
     3- Datos "target" (DONE - URL por fakepath no puedo mostrar la imagen. URL random funciona)s
-
+    4- Agregar "doubleTap" para que funque en mobile
 */
 
 $("tbody").on('dblclick', (e)=>{
@@ -38,7 +38,6 @@ $("tbody").on('dblclick', (e)=>{
 });
 
 //DoubleClick obviamente no funciona con doubleTap, so...
-
 $("tbody").on("touchstart", tapHandler);
 
 var tapedTwice = false;

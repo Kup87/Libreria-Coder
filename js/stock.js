@@ -13,7 +13,9 @@ let setStock = ()=> {
 
                console.log(Libreria[x]);  //Llego al punto en que encuentra el objeto dentro del array
 
-               
+               Libreria.splice(x,1);
+               localStorage.setItem("Libreria", JSON.stringify(Libreria));
+
                 
             } else { console.log("no match");}
         }

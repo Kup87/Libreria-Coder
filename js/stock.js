@@ -1,45 +1,22 @@
 //Comparar el libro ingresado con las entradas anteriores
-
 let setStock = ()=> {
 
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));
     if (Libreria !== null){
         for (item of Libreria) {
             if (item["titulo"] == nuevoLibro.titulo && item["autor"] == nuevoLibro.autor && item["estado"] == nuevoLibro.estado ){
-                console.log(nuevoLibro.titulo);
-                console.log(item["titulo"]);
-                console.log(nuevoLibro.autor);
-                console.log(item["autor"]);
-                console.log(nuevoLibro.estado);
-                console.log(item["estado"]);
+
+                let x = Libreria.indexOf(item); //Encuentra el index del objeto
+
+                newStock = parseInt(nuevoLibro.stock) + parseInt(item["stock"]); 
+                nuevoLibro.stock = newStock;
+
+               console.log(Libreria[x]);  //Llego al punto en que encuentra el objeto dentro del array
+
+               
+                
             } else { console.log("no match");}
         }
     }
 }
 
-//     if (Libreria !== null){ //Si Libreria == null => Error: no es iterable
-//         let catalogo = JSON.parse(localStorage.getItem("Libreria"));
-
-//     
-//         // if (item["titulo"] === nuevoLibro.titulo && item["autor"] === nuevoLibro.autor && item["estado"] === nuevoLibro.estado){
-//         //     //Hacer que se sumen los stocks y evitar que se cree otra entrada
-//         //     // let newSupply = parseInt(cantidadUnidades,10);
-//            console.log(item);
-//            console.log(item["titulo"]);
-//            console.log(nuevoLibro);
-//         //    console.log(newSupply);
-//         // } else {
-//         //     console.log("Se cargó un libro nuevo");
-//         // }
-//     }
-// }}
-
-   
-
-
-     // setStock() {
-    //     let stockIni = 0;
-    //     let unidadesAdd = parseInt(document.getElementById("cantidadUnidades").value,10);
-    //     this.stock = stockIni + unidadesAdd;
-    //     console.log(this.stock);
-    // }

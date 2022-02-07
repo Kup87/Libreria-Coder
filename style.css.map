@@ -5,7 +5,8 @@
         "style.scss",
         "Scss_Partials/_checkForm.scss",
         "Scss_Partials/_lightbox.scss",
-        "Scss_Partials/_welcomeCard.scss"
+        "Scss_Partials/_welcomeCard.scss",
+        "Scss_Partials/_btnsort.scss"
     ],
     "names": [],
     "file": "style.css"

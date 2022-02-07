@@ -1,7 +1,7 @@
 class Libro {
     constructor(titulo,autor,pCompra,pVenta,estado,stock,imgUrl) {
-        this.titulo = titulo;
-        this.autor = autor;
+        this.titulo = titulo.toUpperCase();
+        this.autor = autor.toUpperCase();
         this.pCompra = parseInt(pCompra,10);
         this.pVenta = parseInt(pVenta,10);
         this.estado = estado;
@@ -97,40 +97,8 @@ const limpiarError = (o) => {
 }
 
 //Mostrar el catálogo por tabla
-document.getElementById("showCatalogo").addEventListener("click", ()=> {
-    
-    let catalogo = JSON.parse(localStorage.getItem("Libreria"));
-    let tr = document.querySelectorAll(".tr");
-    
-    for(let i = 0, j = tr.length; i < j; i++) {
-        tr[i].remove()
-    }
-    
-    for (item of catalogo) {
-
-        let htmlTabla = `
-        
-        <tr class="tr">
-        
-        <td>${item.titulo}</td>
-        
-        <td>${item.autor}</td>
-        
-        <td>${item.pCompra}</td>
-        
-        <td>${item.pVenta}</td>
-        
-        <td>${item.stock}</td>
-
-        <td style="display: none">${item.estado}</td>
-
-        <td style="display: none">${item.imgUrl}</td>
-        
-        </tr>`;
-        
-        document.querySelector(".tbody").innerHTML += htmlTabla;
-                
-    }
+$("#showCatalogo").on("click", ()=> {
+    showCatalogo();
 })
 
 

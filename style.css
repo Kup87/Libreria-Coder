@@ -97,7 +97,7 @@
   background-color: rgba(218, 218, 218, 0.5);
 }
 
-.btn-primary:focus {
+.btn_sort:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;

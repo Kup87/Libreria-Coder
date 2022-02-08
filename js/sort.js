@@ -68,20 +68,20 @@ $("#sortAutor").on("click", (e)=> { // FUNCIÓN BTN AUTOR
 
 $("#sortCompra").on("click", (e)=> { // FUNCIÓN BTN COMPRA
     if(e.target.value=="AZ"){
-        sortCatalogoAZ("compra");
+        sortCatalogoAZ("pCompra");
     }
     else if(e.target.value=="ZA"){
-        sortCatalogoZA("compra");
+        sortCatalogoZA("pCompra");
     }
     btnCambio(btnSortCompra);
 });
 
 $("#sortVenta").on("click", (e)=> { // FUNCIÓN BTN VENTA
     if(e.target.value=="AZ"){
-        sortCatalogoAZ("venta");
+        sortCatalogoAZ("pVenta");
     }
     else if(e.target.value=="ZA"){
-        sortCatalogoZA("venta");
+        sortCatalogoZA("pVenta");
     }
     btnCambio(btnSortVenta);
 });

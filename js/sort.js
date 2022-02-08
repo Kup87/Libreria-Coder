@@ -1,4 +1,8 @@
 const btnSortTitulo = document.getElementById("sortTitulo"); //btn Titulo
+const btnSortAutor = document.getElementById("sortAutor");  //btn Autor
+const btnSortCompra = document.getElementById("sortCompra"); //btn Compra
+const btnSortVenta = document.getElementById("sortVenta");  //btn Venta
+const btnSortStock = document.getElementById("sortStock");  //btn Stock
 
 const btnCambio = (d) => { //Alterna entre AZ y ZA dando un valor al btn
     if(d.value=="AZ"){
@@ -8,20 +12,10 @@ const btnCambio = (d) => { //Alterna entre AZ y ZA dando un valor al btn
     }
 };
 
-$("#sortTitulo").on("click", (e)=> { // FUNCIÓN BTN TITULO
-    if(e.target.value=="AZ"){
-        sortCatalogoAZ();
-    }
-    else if(e.target.value=="ZA"){
-        sortCatalogoZA();
-    }
-    btnCambio(btnSortTitulo);
-});
-
-const sortCatalogoAZ = () => { //Ordena A -> Z
+const sortCatalogoAZ = (c) => { //Ordena A -> Z
     let Libreria = JSON.parse(localStorage.getItem('Libreria'));
-    Libreria.sort((a, b, c)=> {
-        c = 'titulo';
+    Libreria.sort((a, b)=> {
+        
         if (a[c] > b[c]) {
             return 1;
         }
@@ -35,10 +29,10 @@ const sortCatalogoAZ = () => { //Ordena A -> Z
     showCatalogo(); //Lo imprimo
 };
 
-const sortCatalogoZA = () => { //Ordena Z -> A
+const sortCatalogoZA = (c) => { //Ordena Z -> A
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));
-    Libreria.sort((a, b, c)=> {
-        c = 'titulo';
+    Libreria.sort((a, b)=> {
+       
         if (a[c] < b[c]) {
             return 1;
         }
@@ -51,3 +45,53 @@ const sortCatalogoZA = () => { //Ordena Z -> A
   localStorage.setItem("Libreria", JSON.stringify(Libreria));
   showCatalogo(); //Lo imprimo
 }
+
+$("#sortTitulo").on("click", (e)=> { // FUNCIÓN BTN TITULO
+    if(e.target.value=="AZ"){
+        sortCatalogoAZ("titulo");
+    }
+    else if(e.target.value=="ZA"){
+        sortCatalogoZA("titulo");
+    }
+    btnCambio(btnSortTitulo);
+});
+
+$("#sortAutor").on("click", (e)=> { // FUNCIÓN BTN AUTOR
+    if(e.target.value=="AZ"){
+        sortCatalogoAZ("autor");
+    }
+    else if(e.target.value=="ZA"){
+        sortCatalogoZA("autor");
+    }
+    btnCambio(btnSortAutor);
+});
+
+$("#sortCompra").on("click", (e)=> { // FUNCIÓN BTN COMPRA
+    if(e.target.value=="AZ"){
+        sortCatalogoAZ("compra");
+    }
+    else if(e.target.value=="ZA"){
+        sortCatalogoZA("compra");
+    }
+    btnCambio(btnSortCompra);
+});
+
+$("#sortVenta").on("click", (e)=> { // FUNCIÓN BTN VENTA
+    if(e.target.value=="AZ"){
+        sortCatalogoAZ("venta");
+    }
+    else if(e.target.value=="ZA"){
+        sortCatalogoZA("venta");
+    }
+    btnCambio(btnSortVenta);
+});
+
+$("#sortStock").on("click", (e)=> { // FUNCIÓN BTN STOCK
+    if(e.target.value=="AZ"){
+        sortCatalogoAZ("stock");
+    }
+    else if(e.target.value=="ZA"){
+        sortCatalogoZA("stock");
+    }
+    btnCambio(btnSortStock);
+});

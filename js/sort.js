@@ -21,7 +21,7 @@ $("#sortTitulo").on("click", (e)=> { // FUNCIÓN BTN TITULO
 const sortCatalogoAZ = () => { //Ordena A -> Z
     let Libreria = JSON.parse(localStorage.getItem('Libreria'));
     Libreria.sort((a, b, c)=> {
-        c = "titulo";
+        c = "'titulo'";
         if (a[c] > b[c]) {
             return 1;
         }
@@ -38,7 +38,7 @@ const sortCatalogoAZ = () => { //Ordena A -> Z
 const sortCatalogoZA = () => { //Ordena Z -> A
     let Libreria = JSON.parse(localStorage.getItem("Libreria"));
     Libreria.sort((a, b, c)=> {
-        c = "titulo";
+        c = 'titulo';
         if (a[c] < b[c]) {
             return 1;
         }

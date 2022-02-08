@@ -46,8 +46,6 @@ const sortCatalogoZA = () => {
         // Si son iguales
         return 0;
   });
-
   localStorage.setItem("Libreria", JSON.stringify(Libreria));
   showCatalogo(); //Lo imprimo
-
 }

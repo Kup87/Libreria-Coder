@@ -26,7 +26,11 @@
 }
 
 .lightbox .tarjeta {
-    width: 80%;
-    height: 80vh;
+    width: 90%;
+    height: 90vh;
     background-color: white;
+}
+
+.lightbox .img-fluid {
+    width: 100%;
 }

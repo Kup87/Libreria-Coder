@@ -4,17 +4,18 @@
     3- Datos "target" (DONE - URL por fakepath no puedo mostrar la imagen. URL random funciona)s
     4- Agregar "doubleTap" para que funque en mobile
 */
-
-$("tbody").on('dblclick', (e)=>{
+let lightboxPrint = (e)=>{
     $(".lightbox").addClass("lightOn"); //No uso .toggle xq no le da "display: flex" y no se centra
     let string = $(e.target).parent().text();
     let array = string.split("\n");    
-
-    let imgTarjetita = (`<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-    <img src="${array[14]}" class="img-fluid" /></div>`)
-
-    
-
+    let imgTarjetita;
+    if (!array[14].replace(/\s/g, '').length) {
+        imgTarjetita = (`<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src="/assets/imagen_no_disponible.jpg" class="img-fluid" /></div>`)
+    } else {        
+        imgTarjetita = (`<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src="${array[14]}" class="img-fluid" onerror="this.onerror=null;this.src='/assets/imagen_no_disponible.jpg';"/></div>`)
+    }      
     $(".tarjeta").html(`
     <section class="mx-auto my-5" style="max-width: 23rem;">
         <div class="card">
@@ -35,7 +36,10 @@ $("tbody").on('dblclick', (e)=>{
     // console.log(array[10]); //Stock
     // console.log(array[12]); //Estado
     // console.log(array[14]); //Url
-    
+
+}
+$("tbody").on('dblclick', (e)=>{
+    lightboxPrint(e);    
 });
 
 //DoubleClick obviamente no funciona con doubleTap, so...

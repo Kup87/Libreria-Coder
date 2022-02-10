@@ -49,7 +49,6 @@ function tapHandler(e) {
         setTimeout( function() { tapedTwice = false; }, 300 ); //Si lo quiero apurar o no
         return false;
     }
-    e.preventDefault();
     lightboxPrint(e);  
  }
 

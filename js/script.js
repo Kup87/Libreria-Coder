@@ -8,7 +8,7 @@ class Libro {
         this.stock = parseInt(stock,10);
         this.imgUrl = imgUrl;
     } 
-}
+};
 
 let titulo = document.getElementById("tituloLibro");
 let autor = document.getElementById("autorLibro");
@@ -66,10 +66,9 @@ form.addEventListener("submit", (e)=>{
             })
         }
     }
-    
     checkForm();
     
-})
+});
 
 //Agregar un new Libro al array catálogo
 let nuevoLibro;

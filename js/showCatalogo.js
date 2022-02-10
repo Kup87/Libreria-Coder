@@ -1,3 +1,4 @@
+//Escribe una tabla para mostrar el catálogo
 const showCatalogo = () => {
     
     let catalogo = JSON.parse(localStorage.getItem("Libreria"));
@@ -32,4 +33,4 @@ const showCatalogo = () => {
         document.querySelector(".tbody").innerHTML += htmlTabla;
                 
     }
-}
+};

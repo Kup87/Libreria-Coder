@@ -44,7 +44,7 @@ const sortCatalogoZA = (c) => { //Ordena Z -> A
   });
   localStorage.setItem("Libreria", JSON.stringify(Libreria));
   showCatalogo(); //Lo imprimo
-}
+};
 
 $("#sortTitulo").on("click", (e)=> { // FUNCIÓN BTN TITULO
     if(e.target.value=="AZ"){

@@ -11,12 +11,9 @@ let setStock = ()=> {
                 newStock = parseInt(nuevoLibro.stock) + parseInt(item["stock"]); 
                 nuevoLibro.stock = newStock;
 
-               console.log(Libreria[x]);  //Llego al punto en que encuentra el objeto dentro del array
+                Libreria.splice(x,1);
+                localStorage.setItem("Libreria", JSON.stringify(Libreria));
 
-               Libreria.splice(x,1);
-               localStorage.setItem("Libreria", JSON.stringify(Libreria));
-
-                
             } else { console.log("no match");}
         }
     }

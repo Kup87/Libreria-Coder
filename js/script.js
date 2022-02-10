@@ -5,7 +5,7 @@ class Libro {
         this.pCompra = parseInt(pCompra,10);
         this.pVenta = parseInt(pVenta,10);
         this.estado = estado;
-        this.stock = stock;
+        this.stock = parseInt(stock,10);
         this.imgUrl = imgUrl;
     } 
 }

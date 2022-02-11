@@ -1,14 +1,13 @@
 //Escribe una tabla para mostrar el catálogo
-const showCatalogo = () => {
+const showCatalogo = (e) => {
     
-    let catalogo = JSON.parse(localStorage.getItem("Libreria"));
     let tr = document.querySelectorAll(".tr");
     
     for(let i = 0, j = tr.length; i < j; i++) {
         tr[i].remove()
     }
     
-    for (item of catalogo) {
+    for (item of e) {
 
         let htmlTabla = `
         

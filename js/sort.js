@@ -13,7 +13,7 @@ const btnCambio = (d) => { //Alterna entre AZ y ZA dando un valor al btn
 };
 
 const sortCatalogoAZ = (c) => { //Ordena A -> Z
-    let Libreria = JSON.parse(localStorage.getItem('Libreria'));
+    
     Libreria.sort((a, b)=> {
         
         if (a[c] > b[c]) {
@@ -26,11 +26,11 @@ const sortCatalogoAZ = (c) => { //Ordena A -> Z
         return 0;
     });
     localStorage.setItem("Libreria", JSON.stringify(Libreria));
-    showCatalogo(); //Lo imprimo
+    showCatalogo(Libreria); //Lo imprimo
 };
 
 const sortCatalogoZA = (c) => { //Ordena Z -> A
-    let Libreria = JSON.parse(localStorage.getItem("Libreria"));
+    
     Libreria.sort((a, b)=> {
        
         if (a[c] < b[c]) {
@@ -43,7 +43,7 @@ const sortCatalogoZA = (c) => { //Ordena Z -> A
         return 0;
   });
   localStorage.setItem("Libreria", JSON.stringify(Libreria));
-  showCatalogo(); //Lo imprimo
+  showCatalogo(Libreria); //Lo imprimo
 };
 
 $("#sortTitulo").on("click", (e)=> { // FUNCIÓN BTN TITULO

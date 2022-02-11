@@ -19,6 +19,7 @@ let cantidadUnidades = document.getElementById("cantidadUnidades");
 let imgUrl = document.getElementById("imagenPortada");
 
 let catalogo = [];
+let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
 
 let form = document.getElementById("form");
 
@@ -76,7 +77,7 @@ const fNuevoLibro = ()=> {
     nuevoLibro = new Libro(titulo.value, autor.value, pCompra.value, pVenta.value, estado.value, cantidadUnidades.value,imgUrl.value);
     setStock(); //Stock.js
     catalogo.push(nuevoLibro);
-    let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
+   
     if (Libreria == null){
         localStorage.setItem("Libreria", JSON.stringify(catalogo));
     } else {
@@ -97,7 +98,7 @@ const limpiarError = (o) => {
 
 //Mostrar el catálogo por tabla
 $("#showCatalogo").on("click", ()=> {
-    showCatalogo();
+    showCatalogo(Libreria);
 })
 
 

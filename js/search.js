@@ -1,9 +1,11 @@
 let filteredData = []; //Nuevo array con los datos filtrados
 $('#search-input').on('keyup',()=>{
+    
    var searchValue = $('#search-input').val().toUpperCase(); //Si uso $(this) tira error, será por el e?
    searchTabla(searchValue, Libreria);
    showCatalogo(filteredData);
    filteredData.length=0;
+   document.getElementById("tbody").scrollIntoView();
    
 });
 

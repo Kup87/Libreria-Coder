@@ -14,7 +14,7 @@ let setStock = ()=> {
                 Libreria.splice(x,1);
                 localStorage.setItem("Libreria", JSON.stringify(Libreria));
 
-            } else { console.log("no match");}
+            }
         }
     }
 }

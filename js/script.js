@@ -19,7 +19,11 @@ let cantidadUnidades = document.getElementById("cantidadUnidades");
 let imgUrl = document.getElementById("imagenPortada");
 
 let catalogo = [];
-let Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
+let Libreria = [];
+let LibreriaFx = ()=>{
+    Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
+    return Libreria
+}
 
 let form = document.getElementById("form");
 
@@ -68,7 +72,7 @@ form.addEventListener("submit", (e)=>{
         }
     }
     checkForm();
-    
+    LibreriaFx();
 });
 
 //Agregar un new Libro al array catálogo
@@ -78,12 +82,13 @@ const fNuevoLibro = ()=> {
     setStock(); //Stock.js
     catalogo.push(nuevoLibro);
    
-    if (Libreria == null){
+    if (Libreria == null ){
         localStorage.setItem("Libreria", JSON.stringify(catalogo));
     } else {
         Libreria.push(nuevoLibro);
         localStorage.setItem("Libreria", JSON.stringify(Libreria));
     }
+    LibreriaFx();
 }
 
 //Agregar o quitar la clase CSS "requiered"

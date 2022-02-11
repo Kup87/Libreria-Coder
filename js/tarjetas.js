@@ -42,15 +42,17 @@ $("tbody").on('dblclick', (e)=>{ //Si hacés dobleclick, imprime la tarjeta
 
 //DoubleClick obviamente no funciona con doubleTap, so...
 $("tbody").on("touchstart", tapHandler);
-var tapedTwice = false;
+var tapedTwice = true;
 function tapHandler(e) {
-    if(!tapedTwice) {
-        tapedTwice = true;
-        setTimeout( function() { tapedTwice = false; }, 300 ); //Si lo quiero apurar o no
-        return false;
+    
+    if(tapedTwice) {
+        tapedTwice = false;
+        setTimeout( function() { tapedTwice = true; }, 300 ); //Si lo quiero apurar o no
+        return true;
     }
+    e.preventDefault();//Para evitar el zoom
     lightboxPrint(e);  
- }
+};
 
 //Para cerrar la tarjeta
 $(".btn_close").click(()=>{

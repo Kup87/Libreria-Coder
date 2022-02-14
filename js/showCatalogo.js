@@ -1,6 +1,12 @@
 //Escribe una tabla para mostrar el catálogo
+//Mostrar el catálogo por tabla
+$("#showCatalogo").on("click", ()=> {
+    LibreriaFx();
+    showCatalogo(Libreria);
+});
+
 const showCatalogo = (e) => {
-    
+
     let tr = document.querySelectorAll(".tr");
     
     for(let i = 0, j = tr.length; i < j; i++) {

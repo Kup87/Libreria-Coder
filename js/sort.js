@@ -13,7 +13,7 @@ const btnCambio = (d) => { //Alterna entre AZ y ZA dando un valor al btn
 };
 
 const sortCatalogoAZ = (c) => { //Ordena A -> Z
-    
+    LibreriaFx();    
     Libreria.sort((a, b)=> {
         
         if (a[c] > b[c]) {

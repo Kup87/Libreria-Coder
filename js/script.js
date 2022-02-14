@@ -19,7 +19,7 @@ let cantidadUnidades = document.getElementById("cantidadUnidades");
 let imgUrl = document.getElementById("imagenPortada");
 
 let catalogo = [];
-let Libreria = [];
+let Libreria;
 let LibreriaFx = ()=>{
     Libreria = JSON.parse(localStorage.getItem("Libreria"));//Guardarlo de forma local
     return Libreria
@@ -101,10 +101,6 @@ const limpiarError = (o) => {
     o.classList.remove("requiered");
 }
 
-//Mostrar el catálogo por tabla
-$("#showCatalogo").on("click", ()=> {
-    showCatalogo(Libreria);
-})
 
 
 

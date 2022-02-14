@@ -30,7 +30,7 @@ const sortCatalogoAZ = (c) => { //Ordena A -> Z
 };
 
 const sortCatalogoZA = (c) => { //Ordena Z -> A
-    
+    LibreriaFx();  
     Libreria.sort((a, b)=> {
        
         if (a[c] < b[c]) {

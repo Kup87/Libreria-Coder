@@ -126,9 +126,8 @@
 .welcomeCardContainer .welcomeCard {
   width: 95%;
   height: 95vh;
-  background-image: url("./assets/welcomeCard.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("./assets/welcomeCard.jpg") no-repeat center center;
+  background-size: contain;
 }
 
 .btn_sort {

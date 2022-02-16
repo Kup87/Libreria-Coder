@@ -18,6 +18,10 @@
   color: red;
 }
 
+#form {
+  display: none;
+}
+
 .lightbox {
   display: none;
   -webkit-box-pack: center;

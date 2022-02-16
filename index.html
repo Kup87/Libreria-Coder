@@ -53,7 +53,7 @@
     </nav>
     <main>
         <h1 class="text-center" id="up">Manejá tu librería <span class="text-danger">con solo una foto!</span></h1>
-
+        <button class="form-toggler btn btn-primary" id="form-toggler">Agregá un libro a tu librería!</button>
         <form class="form" id="form">
             <div class="mb-3">
                 <label for="tituloLibro" class="form-label">Título</label>
@@ -79,15 +79,17 @@
                     aria-label="Precio de Venta">
                 <span class="input-group-text">.00</span>
             </div>
-            <label for="estadoLibro">Estado del Libro</label>
+            <label for="estadoLibro" class="form-label">Estado del Libro</label>
+            <div class="input-group mb-3">
             <select class="form-select" name="estadoLibro" id="estadoLibro" aria-label="Estado del Libro">
                 <option style="display:none"></option>
                 <option value="Nuevo">Nuevo/Perfecto Estado</option>
                 <option value="Usado-Bien">Usado, en buen estado</option>
                 <option value="Usado-Mal">Usado, con pequeños defectos</option>
             </select>
+            </div>
+            <label for="cantidadUnidades" class="form-label">Cantidad de Unidades</label>
             <div class="mb-3">
-                <label for="cantidadUnidades">Cantidad de Unidades</label>
                 <input type="number" name="cantidadUnidades" class="form-control" id="cantidadUnidades"
                     aria-describedby="Cantidad de Unidades">
             </div>
@@ -97,11 +99,10 @@
             </div>
 
             <button type="submit" class="btn btn-primary" onclick="limpiarError()">Cargar Libro</button>
-
         </form>
 
         <br><br>
-        <button type="submit" class="btn btn-primary" id="showCatalogo">Ver Catálogo</button>
+        
         <div class="catalogoCanva">
             <table class="table table-striped">
                 <thead>
@@ -144,6 +145,7 @@
     <script src="js\sort.js"></script>
     <script src="js\showCatalogo.js"></script>
     <script src="js\search.js"></script>
+    <script src="js\animateForm.js"></script>
     
 
 </body>

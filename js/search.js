@@ -1,6 +1,6 @@
 let filteredData = []; //Nuevo array con los datos filtrados
-$('#search-input').on('keyup',()=>{
-    
+$('#search-input').on('keyup',(e)=>{
+    e.preventDefault();
    var searchValue = $('#search-input').val().toUpperCase(); //Si uso $(this) tira error, será por el e?
    searchTabla(searchValue, Libreria);
    showCatalogo(filteredData);
@@ -9,7 +9,7 @@ $('#search-input').on('keyup',()=>{
    
 });
 
-const searchTabla = (searchValue,data)=>{
+const searchTabla = (searchValue, data)=>{
     
     for (const dato of data) {
         if (dato.titulo.includes(searchValue) || dato.autor.includes(searchValue) ){

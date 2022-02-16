@@ -1,6 +1,6 @@
 //Escribe una tabla para mostrar el catálogo
 //Mostrar el catálogo por tabla
-$("#showCatalogo").on("click", ()=> {
+$(document).ready(()=>{
     LibreriaFx();
     showCatalogo(Libreria);
 });

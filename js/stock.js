@@ -1,7 +1,6 @@
 //Comparar el libro ingresado con las entradas anteriores
 let setStock = ()=> {
 
-    let Libreria = JSON.parse(localStorage.getItem("Libreria"));
     if (Libreria !== null){
         for (item of Libreria) {
             if (item["titulo"] == nuevoLibro.titulo && item["autor"] == nuevoLibro.autor && item["estado"] == nuevoLibro.estado ){

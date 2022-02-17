@@ -157,4 +157,8 @@
 .tbody td {
   word-break: break-all;
 }
+
+#search-input::-webkit-search-cancel-button {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

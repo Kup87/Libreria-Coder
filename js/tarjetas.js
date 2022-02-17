@@ -9,7 +9,7 @@ let lightboxPrint = (e)=>{ //Fx para imprimir la tarjetita
 
     if (!array[14].replace(/\s/g, '').length) {//si están vacías
         imgTarjetita = (`<div class="bg-image hover-overlay ripple" id="imgCard" data-mdb-ripple-color="light">
-        <img src="/assets/imagen_no_disponible.jpg" id="imgCard_img"/></div>`);
+        <img src='assets/imagen_no_disponible.jpg' id="imgCard_img"/></div>`);
     } else {  //Si funciona bien PERO con un "onerror" directamente en el html   
         imgTest = "https://picsum.photos/800/1200"
         imgTarjetita = (`<div class="bg-image hover-overlay ripple" id="imgCard" data-mdb-ripple-color="light">

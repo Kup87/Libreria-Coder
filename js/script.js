@@ -73,7 +73,7 @@ form.addEventListener("submit", (e)=>{
     }
     checkForm();
     LibreriaFx();
-    
+    showCatalogo(Libreria);
 });
 
 //Agregar un new Libro al array catálogo

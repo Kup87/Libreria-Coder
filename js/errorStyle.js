@@ -26,7 +26,7 @@ $(".form-select").on('focus', ()=> {
 })
 
 $(".form-select").on('change', ()=> {
-    if (estado.value != "" && estado.value != "req") {
+    if (estado.value != "") {
         estado.classList.remove("form-select-requiered");
         limpiarError(estado);
     }

@@ -48,7 +48,7 @@ form.addEventListener("submit", (e)=>{
             error = true;} else {
             limpiarError(pCompra);
         }       
-        if (estado.value === ""){
+        if (estado.value === "" || estado.value === "req"){
             destacarError(estado);
             destacarErrorSelect(estado);
             error = true;} else {

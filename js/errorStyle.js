@@ -25,5 +25,9 @@ $(".form-select").on('focus', ()=> {
     }
 })
 
-
-
+$(".form-select").on('change', ()=> {
+    if (estado.value != "" && estado.value != "req") {
+        estado.classList.remove("form-select-requiered");
+        limpiarError(estado);
+    }
+})

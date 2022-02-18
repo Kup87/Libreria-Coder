@@ -1,4 +1,4 @@
-# appLibreria
+#Libreria - Coderhouse
 
 Aplicación de librería online.
 Carga los libros como instancia de objetos y ordena en un array que en un futuro deberá visualizarse como catálogo.

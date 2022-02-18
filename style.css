@@ -22,6 +22,10 @@
   display: none;
 }
 
+.form-select-requiered {
+  color: red;
+}
+
 .lightbox {
   display: none;
   -webkit-box-pack: center;

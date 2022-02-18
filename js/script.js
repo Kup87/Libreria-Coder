@@ -50,6 +50,7 @@ form.addEventListener("submit", (e)=>{
         }       
         if (estado.value === ""){
             destacarError(estado);
+            destacarErrorSelect(estado);
             error = true;} else {
             limpiarError(estado);
         }  
@@ -92,15 +93,7 @@ const fNuevoLibro = ()=> {
     LibreriaFx();
 }
 
-//Agregar o quitar la clase CSS "requiered"
-const destacarError = (o) => {
-    o.classList.add("requiered");
-    o.placeholder = "Es necesario completar este campo";
-}
 
-const limpiarError = (o) => {
-    o.classList.remove("requiered");
-}
 
 
 

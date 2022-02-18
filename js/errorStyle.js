@@ -23,7 +23,6 @@ $(".form-select").on('focus', ()=> {
             estado.removeChild(estado.options[t]);
         }
     }
-
 })
 
 

@@ -7,7 +7,12 @@ let setStock = ()=> {
                 let x = Libreria.indexOf(item); //Encuentra el index del objeto
 
                 newStock = parseInt(nuevoLibro.stock) + parseInt(item["stock"]); 
-                nuevoLibro.stock = newStock;
+                nuevoLibro.stock = newStock;   
+
+                if (nuevoLibro.imgUrl == "") {
+                    oldImgUrl = item["imgUrl"];
+                   nuevoLibro.imgUrl = oldImgUrl;
+                }
 
                 Libreria.splice(x,1);
                 localStorage.setItem("Libreria", JSON.stringify(Libreria));

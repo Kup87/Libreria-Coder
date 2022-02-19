@@ -54,7 +54,7 @@ form.addEventListener("submit", (e)=>{
             error = true;} else {
             limpiarError(estado);
         }  
-        if (isNaN(cantidadUnidades.value) || cantidadUnidades.value === "" || cantidadUnidades.value < 0){
+        if (isNaN(cantidadUnidades.value) || cantidadUnidades.value === "" || cantidadUnidades.value < 0 || cantidadUnidades.value > 100000){
             destacarError(cantidadUnidades);
             error = true;} else {
             limpiarError(cantidadUnidades);
